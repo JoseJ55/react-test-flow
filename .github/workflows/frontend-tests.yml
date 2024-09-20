@@ -1,0 +1,27 @@
+name: Website test
+
+on:
+  pull_request:
+    paths:
+      - 'src/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: 20.x
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install dependencies
+      run: |
+        npm install
+        pnpm install --frozen-lockfile
+    - name: Build
+      run: npm run build
+    - name: Test
+      run: npm test
