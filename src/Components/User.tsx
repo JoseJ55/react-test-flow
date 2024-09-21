@@ -7,5 +7,5 @@ interface UserInterface {
 export default function User({ name } : UserInterface) {
   return (
     <p>{name}</p>
-  );
+  )
 }
