@@ -1,4 +1,4 @@
-name: Website test
+name: Website Linter
 
 on:
   pull_request:
@@ -25,4 +25,4 @@ jobs:
       run: npm run build
 
     - name: Test
-      run: npm test
+      run: npm run lint
